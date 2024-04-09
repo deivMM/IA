@@ -1,19 +1,16 @@
-from PIL import Image
 import numpy as np
+from PIL import Image
+import matplotlib.pyplot as plt
 
-# Abrir la imagen
-imagen = Image.open("data/digits/1_1.png")  # Reemplaza "tu_imagen.jpg" con la ruta de tu imagen
+imagen = Image.open("../data/digits/0_1.png")
 array_imagen = np.array(imagen)
 
-# Redimensionar la imagen a 64x64 píxeles
-imagen_redimensionada = imagen.resize((64, 64))
-
-
+imagen_redimensionada = imagen.resize((30, 30))
 
 print("Dimensiones de la imagen:", array_imagen.shape)
-
-# Mostrar el array
 print("Array de la imagen:\n", array_imagen)
 
-# Mostrar la imagen
-imagen_redimensionada.show()
+f, ax = plt.subplots(figsize=(6, 6))
+ax.imshow(imagen_redimensionada, cmap='gray')
+ax.axis('off')
+plt.show()

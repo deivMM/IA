@@ -14,3 +14,5 @@ f, ax = plt.subplots(figsize=(6, 6))
 ax.imshow(imagen_redimensionada, cmap='gray')
 ax.axis('off')
 plt.show()
+
+print('terminado')

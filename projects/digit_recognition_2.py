@@ -2,7 +2,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-imagen = Image.open("../data/digits/0_1.png")
+imagen = Image.open("data/digits/0_3.png")
 array_imagen = np.array(imagen)
 
 imagen_redimensionada = imagen.resize((30, 30))

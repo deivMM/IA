@@ -14,6 +14,7 @@ def get_image_vect(img):
     return datos_pixeles_normalizados
 
 def comprobar_digito(img):
+    loaded_model = joblib.load('digit_recognition_model.pkl')
     image_vect = get_image_vect(img)
     predicted_val = loaded_model.predict([image_vect])[0]
     return predicted_val
@@ -47,7 +48,6 @@ class DrawingApp:
 
 def main():
     print(os.getcwd())
-    loaded_model = joblib.load('projects/digit_recognition_model.pkl')
     root = tk.Tk()
     app = DrawingApp(root)
     root.mainloop()

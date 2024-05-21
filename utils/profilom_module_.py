@@ -95,11 +95,15 @@ def find_circle_center(x, y):
     r0 = ((x1 - x0)**2 + (y1 - y0)**2)**0.5
     return x0, y0, r0
 
-def n_secuential_sample(array, n):
+def n_secuential_sample(array, nparts=None, ntimes=None):
     l = len(array)
-    part1 = l // n
-    m1 = np.random.randint(0, part1)
-    indexes = [m1+part1*i for i in range(n)]
+    if nparts:
+        part1 = l // nparts
+        m1 = np.random.randint(0, nparts)
+        indexes = [m1+part1*i for i in range(nparts)]
+    if ntimes:
+        m1 = np.random.randint(0, ntimes)
+        indexes = [m1+ntimes*i for i in range(l // ntimes)]
     return array[indexes]
 
 def circle_error(params, points):

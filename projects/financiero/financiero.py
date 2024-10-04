@@ -35,14 +35,18 @@ def interes_compuesto_con_aportes(Ci, tasa_interes, t, aporte_anual):
     monto_total = Ci
     aportación_acumulada = 0
     aportaciones = []
+    intereses = []
     for _ in t:
         aportaciones.append(aportación_acumulada)
         monto_total_list.append(monto_total)
-        monto_total = monto_total * (1 + tasa_interes / 100)
+        interes = monto_total * (tasa_interes / 100)
+        intereses.append(interes)
+        # monto_total = monto_total * (1 + tasa_interes / 100)
+        monto_total += interes
         monto_total += aporte_anual
         aportación_acumulada += aporte_anual
         
-    return t, np.array(monto_total_list), np.array(aportaciones)
+    return t, np.array(monto_total_list), np.array(aportaciones), np.array(intereses)
 
 t, dinero = interes_compuesto(10000, 5, 10)
 
@@ -51,11 +55,12 @@ ax.plot(t, dinero)
 # ax.set_ylim(0, dinero.max()*1.05)
 print(dinero.max())
 
-t, dinero, aportaciones = interes_compuesto_con_aportes(10000, 5, 10, 1000)
+t, dinero, aportaciones, intereses = interes_compuesto_con_aportes(10000, 5, 10, 1000)
 
 # f, ax = plt.subplots(figsize=(8, 8))
 ax.plot(t, dinero)
 ax.bar(t, aportaciones)
+ax.bar(t, intereses)
 ax.set_ylim(0, dinero.max()*1.05)
 print(dinero.max())
 plt.show()

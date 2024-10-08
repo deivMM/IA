@@ -2,16 +2,15 @@ import cv2
 import cvzone
 import numpy as np
 
+
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 480)
 
-
 def empty(a):
     pass
 
-
-cvzone.findContours()
+# cvzone.findContours()
 
 cv2.namedWindow('Settings')
 cv2.resizeWindow('Settings', 640,240)

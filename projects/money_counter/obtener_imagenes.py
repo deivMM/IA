@@ -1,10 +1,14 @@
 import os
-os.chdir('C:/Users/dmarquez/OneDrive - Lortek S.Coop/Escritorio/David/digital/00_main/IA/projects/money_counter')
 import cv2
-[os.remove(f'imagenes/{f}') for f in os.listdir('imagenes')]
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+images_path = os.path.join(script_dir, 'imagenes')
+
+[os.remove(f'{images_path}/{f}') for f in os.listdir(images_path)]
+
 
 i = 1
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Error: No se pudo abrir la cámara.")
@@ -21,7 +25,7 @@ while True:
     key = cv2.waitKey(1)
     if key == 32:  # Tecla espacio
         image_n = f'image_{i}'
-        cv2.imwrite(f'imagenes/{image_n}.jpg', frame)
+        cv2.imwrite(f'{images_path}/{image_n}.jpg', frame)
         print(f"Foto guardada como '{image_n}.jpg'")
         i += 1
 

@@ -31,7 +31,6 @@ while True:
 
     imgStacked = cvzone.stackImages([img, imgPre], 2, 1)
     cv2.imshow('Image', imgStacked)
-    # cv2.imshow('Image_Pre', imgPre)
     if cv2.waitKey(1) == ord('q'):
         break
 

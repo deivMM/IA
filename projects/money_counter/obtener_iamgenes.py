@@ -11,7 +11,7 @@ if not cap.isOpened():
     exit()
 while True:
     ret, frame = cap.read()
-    
+
     if not ret:
         print("Error: No se pudo leer el frame.")
         break

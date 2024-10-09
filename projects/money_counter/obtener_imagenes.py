@@ -25,6 +25,7 @@ while True:
     key = cv2.waitKey(1)
     if key == 32:  # Tecla espacio
         image_n = f'image_{i}'
+        frame = cv2.resize(frame, None, fx= .5, fy= .5)
         cv2.imwrite(f'{images_path}/{image_n}.jpg', frame)
         print(f"Foto guardada como '{image_n}.jpg'")
         i += 1

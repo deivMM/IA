@@ -1,6 +1,7 @@
 # Ignorar archivos con extensión .txt
 *.txt
 !README.txt
+perfil*
 
 # Ignorar archivos que comienzan por 000
 00*
